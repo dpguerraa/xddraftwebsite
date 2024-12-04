@@ -140,6 +140,20 @@
       color: white;
     }
 
+    .article-content {
+      display: none;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    .show {
+      display: block;
+    }
+
     footer {
       background-color: #222;
       color: white;
@@ -168,21 +182,21 @@
   <h2>Explore Our Subtopics</h2>
   <div class="subtopics">
     <!-- Iwas Sawi -->
-    <div class="card">
+    <div class="card" onclick="showArticle('iwas-sawi')">
       <img src="sawi.jpg" alt="Iwas Sawi Project Logo">
       <h3>IWAS SAWI PROJECT</h3>
       <p>Deep narratives about human connections and emotions in Filipino culture.</p>
     </div>
 
     <!-- Alam-At -->
-    <div class="card">
+    <div class="card" onclick="showArticle('alam-at')">
       <img src="alam.jpg" alt="Alam-at Logo">
       <h3>ALAM-AT</h3>
       <p>Stories of history and culture that have shaped the Filipino identity.</p>
     </div>
 
     <!-- Outer Space -->
-    <div class="card">
+    <div class="card" onclick="showArticle('outer-space')">
       <img src="space.jpg" alt="Outer Space Logo">
       <h3>OUTER SPACE</h3>
       <p>Discover humor, lightheartedness, and the cosmic creativity of Filipino life.</p>
@@ -190,10 +204,46 @@
   </div>
 </section>
 
+<!-- Article Content Sections (Hidden by Default) -->
+<div id="iwas-sawi" class="article-content">
+  <button onclick="backToLanding()">Back</button>
+  <h2>IWAS SAWI PROJECT</h2>
+  <p>This article discusses deep narratives about human connections and emotions in Filipino culture...</p>
+</div>
+
+<div id="alam-at" class="article-content">
+  <button onclick="backToLanding()">Back</button>
+  <h2>ALAM-AT</h2>
+  <p>This article covers the stories of history and culture that have shaped the Filipino identity...</p>
+</div>
+
+<div id="outer-space" class="article-content">
+  <button onclick="backToLanding()">Back</button>
+  <h2>OUTER SPACE</h2>
+  <p>This article explores humor, lightheartedness, and the cosmic creativity of Filipino life...</p>
+</div>
+
 <!-- Footer Section -->
 <footer>
   <p>&copy; 2024 XD Magazine | All Rights Reserved</p>
 </footer>
+
+<script>
+  // Show article content when a subtopic is clicked
+  function showArticle(subtopic) {
+    document.querySelectorAll('.article-content').forEach(function(article) {
+      article.classList.remove('show');
+    });
+    document.getElementById(subtopic).classList.add('show');
+  }
+
+  // Go back to the landing page (subtopics section)
+  function backToLanding() {
+    document.querySelectorAll('.article-content').forEach(function(article) {
+      article.classList.remove('show');
+    });
+  }
+</script>
 
 </body>
 </html>
